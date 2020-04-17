@@ -18,18 +18,18 @@ class App extends Component {
 
   handleAdd = async () => {
     console.log("Add");
+
     const obj = {
       title: "a",
       body: "b"
     };
-    // Server will respond with newly created post!
+
     const { data: post } = await http.post(config.apiEndPoint, obj);
     const posts = [post, ...this.state.posts];
     this.setState({ posts });
     console.log(post);
   };
 
-  // Method responsible for updating post
   handleUpdate = async post => {
     post.title = "UPDATED";
 
@@ -45,28 +45,22 @@ class App extends Component {
     }
   };
 
-  // Deleting a post
   handleDelete = async post => {
     const originalPosts = this.state.posts;
     const posts = this.state.posts.filter(p => p.id !== post.id);
     this.setState({ posts });
 
     try {
-      const deletedPost = await http.delete(
-        "s" + config.apiEndPoint + "/" + post.id
-      );
-      console.log("DELETED POST: ", deletedPost);
+      await http.delete(config.apiEndPoint + "/" + post.id);
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
         alert("this post has already been deleted");
         console.log("Exception object:", ex.response);
       }
-
       this.setState({ posts: originalPosts });
     }
   };
 
-  // Responsible for rendering view
   render() {
     return (
       <React.Fragment>
