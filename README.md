@@ -4,7 +4,7 @@ This repo demonstrates how CRUD API endpoints can be consumed in React applicati
 
 ## Libraries used:
 
-- create-react-app: for bootstrapping the react project
-- axios - for making API calls
-- JSONPlaceholder[https://jsonplaceholder.typicode.com/]: Fake REST API for testing
-- react-toastify[https://www.npmjs.com/package/react-toastify]: for displaying toast when unexpected error occurs.
+- **[create-react-app](https://www.npmjs.com/package/axios)**: for bootstrapping the react project
+- **[axios](https://www.npmjs.com/package/axios)** - for making API calls
+- **[JSONPlaceholder](https://jsonplaceholder.typicode.com/)**: Fake REST API for testing
+- **[react-toastify](https://www.npmjs.com/package/react-toastify)**: for displaying toast when unexpected error occurs.
